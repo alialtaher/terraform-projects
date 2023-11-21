@@ -1,7 +1,9 @@
 provider "aws" {
   region = "us-east-1"
-  access_key = "" ##Senstive content, can be removed, aws configure is a better option
-  secret_key = "" ##Senstive content, can be removed, aws configure is a better option
+  assume_role {
+    role_arn = "arn:aws:iam::994218300221:role/admin_IAM_role"
+    session_name = "test"
+  }
 }
 
 resource "aws_instance" "ec2_terraform1" {
